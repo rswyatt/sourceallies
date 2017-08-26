@@ -26,7 +26,7 @@ class MobyDickChallenge {
       while (!$file->eof()) {
         $matches = FALSE;
         $txt = $file->fgets();
-        
+
         if ($i > $ct && $i%2 == 0) {
           $this->stop_words[] = trim($txt);
         }
@@ -57,6 +57,9 @@ class MobyDickChallenge {
    *
    * A list of stop words has been provided so the list will exclude any words
    * appearing in that list.
+   *
+   * @return array $frequencies
+   *   An array of the top 100 words sorted by frequency.
    */
   function calculate_frequency() {
     if (!empty($this->story_text)) {
